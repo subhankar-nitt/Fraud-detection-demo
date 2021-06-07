@@ -1,0 +1,199 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:272), pid=3668, tid=0x00000000000024b0
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_291-b10) (build 1.8.0_291-b10)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.291-b10 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000281ce1ca000):  JavaThread "main" [_thread_in_vm, id=9392, stack(0x000000fc38d00000,0x000000fc38e00000)]
+
+Stack: [0x000000fc38d00000,0x000000fc38e00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32ea19]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClassOrNull(Ljava/lang/String;)Ljava/lang/Class;+12
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+48
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+38
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+81
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+j  com.example.mongo.App.main([Ljava/lang/String;)V+0
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000281e434e800 JavaThread "Service Thread" daemon [_thread_blocked, id=8536, stack(0x000000fc39700000,0x000000fc39800000)]
+  0x00000281e42eb000 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=11104, stack(0x000000fc39600000,0x000000fc39700000)]
+  0x00000281e42e8800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=3928, stack(0x000000fc39500000,0x000000fc39600000)]
+  0x00000281e42e2000 JavaThread "Attach Listener" daemon [_thread_blocked, id=9060, stack(0x000000fc39400000,0x000000fc39500000)]
+  0x00000281e42e1000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9640, stack(0x000000fc39300000,0x000000fc39400000)]
+  0x00000281e42c4000 JavaThread "Finalizer" daemon [_thread_blocked, id=10692, stack(0x000000fc39200000,0x000000fc39300000)]
+  0x00000281e3de7000 JavaThread "Reference Handler" daemon [_thread_blocked, id=8284, stack(0x000000fc39100000,0x000000fc39200000)]
+=>0x00000281ce1ca000 JavaThread "main" [_thread_in_vm, id=9392, stack(0x000000fc38d00000,0x000000fc38e00000)]
+
+Other Threads:
+  0x00000281e42a3800 VMThread [stack: 0x000000fc39000000,0x000000fc39100000] [id=8832]
+  0x00000281e438f800 WatcherThread [stack: 0x000000fc39800000,0x000000fc39900000] [id=1856]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000088a00000, size: 1910 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 35840K, used 1858K [0x00000000d8380000, 0x00000000dab80000, 0x0000000100000000)
+  eden space 30720K, 6% used [0x00000000d8380000,0x00000000d8550900,0x00000000da180000)
+  from space 5120K, 0% used [0x00000000da680000,0x00000000da680000,0x00000000dab80000)
+  to   space 5120K, 0% used [0x00000000da180000,0x00000000da180000,0x00000000da680000)
+ ParOldGen       total 81920K, used 0K [0x0000000088a00000, 0x000000008da00000, 0x00000000d8380000)
+  object space 81920K, 0% used [0x0000000088a00000,0x0000000088a00000,0x000000008da00000)
+ Metaspace       used 3145K, capacity 4494K, committed 4864K, reserved 1056768K
+  class space    used 309K, capacity 386K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x00000281def40000,0x00000281df300000] byte_map_base: 0x00000281deafb000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000060c97fe0
+ Begin Bits: [0x00000281df580000, 0x00000281e1358000)
+ End Bits:   [0x00000281e1358000, 0x00000281e3130000)
+
+Polling page: 0x00000281ce2c0000
+
+CodeCache: size=245760Kb used=1161Kb max_used=1161Kb free=244598Kb
+ bounds [0x00000281cfb80000, 0x00000281cfdf0000, 0x00000281deb80000]
+ total_blobs=288 nmethods=54 adapters=148
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.463 Thread 0x00000281e42eb000   50       3       java.util.HashMap::getNode (148 bytes)
+Event: 0.465 Thread 0x00000281e42eb000 nmethod 50 0x00000281cfca0810 code [0x00000281cfca09e0, 0x00000281cfca1390]
+Event: 0.467 Thread 0x00000281e42eb000   51       3       java.util.jar.Attributes$Name::isValid (32 bytes)
+Event: 0.468 Thread 0x00000281e42eb000 nmethod 51 0x00000281cfca1650 code [0x00000281cfca17c0, 0x00000281cfca1a80]
+Event: 0.468 Thread 0x00000281e42eb000   52       3       java.util.jar.Attributes$Name::isAlpha (30 bytes)
+Event: 0.468 Thread 0x00000281e42eb000 nmethod 52 0x00000281cfca1b10 code [0x00000281cfca1c60, 0x00000281cfca1e98]
+Event: 0.469 Thread 0x00000281e42eb000   53       3       sun.misc.ASCIICaseInsensitiveComparator::toLower (16 bytes)
+Event: 0.469 Thread 0x00000281e42eb000 nmethod 53 0x00000281cfca1f10 code [0x00000281cfca2080, 0x00000281cfca22d8]
+Event: 0.469 Thread 0x00000281e42eb000   54       3       sun.misc.ASCIICaseInsensitiveComparator::isUpper (18 bytes)
+Event: 0.469 Thread 0x00000281e42eb000 nmethod 54 0x00000281cfca2390 code [0x00000281cfca24e0, 0x00000281cfca2698]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (4 events):
+Event: 0.309 Thread 0x00000281ce1ca000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000d8387cc0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u291\1294\hot
+Event: 0.309 Thread 0x00000281ce1ca000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000d8387fa8) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u291\1294\hotspot\src\share\vm\
+Event: 0.461 Thread 0x00000281ce1ca000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d85215c8) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u291\1294\hotspot\src\share\vm\prims\jvm.cpp, line 1523]
+Event: 0.461 Thread 0x00000281ce1ca000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d85217d8) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u291\1294\hotspot\src\share\vm\prims\jvm.cpp, line 1523]
+
+Events (10 events):
+Event: 0.492 loading class scala/collection/immutable/Traversable
+Event: 0.492 loading class scala/Immutable
+Event: 0.492 loading class scala/Immutable done
+Event: 0.493 loading class scala/collection/immutable/Traversable done
+Event: 0.495 loading class scala/collection/immutable/Iterable done
+Event: 0.506 loading class scala/collection/immutable/Seq done
+Event: 0.506 loading class scala/collection/LinearSeq
+Event: 0.506 loading class scala/collection/LinearSeqLike
+Event: 0.507 loading class scala/collection/LinearSeqLike done
+Event: 0.512 loading class scala/collection/LinearSeq done
+
+
+Dynamic libraries:
+0x00007ff6670d0000 - 0x00007ff667117000 	C:\Program Files\Java\jre1.8.0_291\bin\javaw.exe
+0x00007ffe42930000 - 0x00007ffe42b25000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe41860000 - 0x00007ffe4191d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe40170000 - 0x00007ffe40438000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe409b0000 - 0x00007ffe40a5c000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe42850000 - 0x00007ffe428ee000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe42460000 - 0x00007ffe424fb000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe41410000 - 0x00007ffe4153b000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe41980000 - 0x00007ffe41b20000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe40590000 - 0x00007ffe405b2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe413e0000 - 0x00007ffe4140a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe40610000 - 0x00007ffe4071b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe404f0000 - 0x00007ffe4058d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe40070000 - 0x00007ffe40170000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe2b690000 - 0x00007ffe2b92a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.844_none_ca00b6081b84eb1d\COMCTL32.dll
+0x00007ffe40a60000 - 0x00007ffe40a90000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffe2f730000 - 0x00007ffe2f745000 	C:\Program Files\Java\jre1.8.0_291\bin\vcruntime140.dll
+0x00007ffe2f690000 - 0x00007ffe2f72b000 	C:\Program Files\Java\jre1.8.0_291\bin\msvcp140.dll
+0x00000000604b0000 - 0x0000000060d10000 	C:\Program Files\Java\jre1.8.0_291\bin\server\jvm.dll
+0x00007ffe40c20000 - 0x00007ffe40c28000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffe2bc00000 - 0x00007ffe2bc09000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe42500000 - 0x00007ffe4256b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe34600000 - 0x00007ffe34627000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe325c0000 - 0x00007ffe325ca000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe3df80000 - 0x00007ffe3df92000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffe2bb50000 - 0x00007ffe2bb60000 	C:\Program Files\Java\jre1.8.0_291\bin\verify.dll
+0x00007ffe17f40000 - 0x00007ffe17f6b000 	C:\Program Files\Java\jre1.8.0_291\bin\java.dll
+0x00007ffe18bf0000 - 0x00007ffe18c08000 	C:\Program Files\Java\jre1.8.0_291\bin\zip.dll
+0x00007ffe40c30000 - 0x00007ffe41372000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffe3e180000 - 0x00007ffe3e910000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffe42100000 - 0x00007ffe42455000 	C:\WINDOWS\System32\combase.dll
+0x00007ffe3f940000 - 0x00007ffe3f96c000 	C:\WINDOWS\SYSTEM32\Wldp.dll
+0x00007ffe41670000 - 0x00007ffe4171e000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ffe41800000 - 0x00007ffe41855000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffe3ffb0000 - 0x00007ffe3ffcf000 	C:\WINDOWS\SYSTEM32\profapi.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath/a:C:\eclipse\plugins\org.scala-lang.scala-library_2.12.3.v20170725-052526-VFINAL-6ac6da8.jar;C:\eclipse\plugins\org.scala-lang.scala-reflect_2.12.3.v20170725-052526-VFINAL-6ac6da8.jar 
+java_command: com.example.mongo.App
+java_class_path (initial): C:\Program Files\Java\jre1.8.0_291\lib\resources.jar;C:\Program Files\Java\jre1.8.0_291\lib\rt.jar;C:\Program Files\Java\jre1.8.0_291\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_291\lib\jce.jar;C:\Program Files\Java\jre1.8.0_291\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_291\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\cldrdata.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\dnsns.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\jaccess.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\jfxrt.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\localedata.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\nashorn.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\sunec.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\sunmscapi.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jre1.8.0_291\lib\ext\zipfs.jar;C:\eclipse\plugins\org.scala-lang.scala-library_2.12.3.v20170725-052526-VFINAL-6ac6da8.jar;C:\eclipse\plugins\org.scala-lang.scala-reflect_2.12.3.v20170725-052526-VFINAL-6ac6da8.jar;E:\scala workspace\scalaMongodb\app\bin\main;E:\scala workspace\scalaMongodb\app\bin\test;\App\bin\default;C:\Users\user\.gradle\caches\modules-2\files-2.1\org.mongodb.scala\mongo-scala-driver_2.12\4.3.0-beta2\5a3ade949738dbe9244f662acdcfba1370e62f51\mongo-scala-driver_2.12-4.3.0-beta2.jar;C:\Users\user\.gradle\caches\modules-2\files-2.1\org.mongodb.scala\mongo-scala-bson_2.12\4.3.0-beta2\daa1c86eb0bcb0683e7a5b5955ac04d5f8863d72\mongo-scala-bson_2.12-4.3.0-beta2.jar;C:\Users\user\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-reflect\2.12.12\724278c9eb08825e176f3ed0ce49556886a2f7f7\scala-reflect-2.12.12.jar;C:\Users\user\.gradle\caches\modules-2\files-2.1\org.mongodb\mongodb-driver-reactivestreams\4.3.0-beta2\d88210d800c2238de613a7eeb908e73dcfce8d3e\mongodb-driver-reactivestreams-4.3.0-beta2.jar;C:\
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jre1.8.0_291\
+PATH=C:/Program Files/Java/jre1.8.0_291/bin/server;C:/Program Files/Java/jre1.8.0_291/bin;C:/Program Files/Java/jre1.8.0_291/lib/amd64;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Java\jre1.8.0_291\bin;C:\Program Files\Java\jdk-11\bin;C:\MinGW\msys\1.0\bin;C:\Python27\Scripts;C:\sqlite;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\nodejs\;C:\Program Files\MongoDB\Server\4.4\bin;C:\Program Files\PuTTY\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\user\.cargo\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\apache-maven-3.6.3\bin;C:\Program Files\Amazon\AWSCLIV2\;C:\kotlinc\bin;C:\hadoop\bin;C:\spark\bin;C:\cassandra\bin;C:\Program Files (x86)\sbt\bin;C:\zookeeper\apache-zookeeper-3.7.0-bin\apache-zookeeper-3.7.0-bin\bin;C:\Program Files (x86)\scala\bin;C:\Gradle\bin;C:\Users\user\.cargo\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\user\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\user\AppData\Local\Programs\Python\Python39\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Users\user\AppData\Roaming\npm;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PyCharm 2020.3.3\bin;;C:\eclipse;
+USERNAME=user
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 21 Model 112 Stepping 0, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.928)
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 21 model 112 stepping 0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+Memory: 4k page, physical 7821492k(1132532k free), swap 9918644k(5120k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.291-b10) for windows-amd64 JRE (1.8.0_291-b10), built on Apr  9 2021 00:02:00 by "java_re" with MS VC++ 15.9 (VS2017)
+
+time: Mon Jun  7 11:21:34 2021
+timezone: India Standard Time
+elapsed time: 0.550347 seconds (0d 0h 0m 0s)
+
