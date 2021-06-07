@@ -14,7 +14,7 @@ import com.example.kafkaConsumer.Consumer
 
 object App {
   def main(args: Array[String]): Unit = {
-    val mongoConnect:MongoClient =MongoClients.create( "mongodb+srv://sub:sub@cluster0.jcwa7.mongodb.net/Test?retryWrites=true&w=majority")
+    val mongoConnect:MongoClient =MongoClients.create( "paste your url here")
     try{
         val database = mongoConnect.getDatabase("Test")        
         new Consumer().produceResult(database,"Iris")
