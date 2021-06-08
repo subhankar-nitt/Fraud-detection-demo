@@ -2,13 +2,16 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import time
+from kafka import KafkaConsumer
+#ans=[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]
+
 c=0;
 while 1:
 
    if(c==0):
 
        c+=1
-       dataset = pd.read_csv('C:/Users/HP/OneDrive/Desktop/Fraud_excell/Probable-exits-master/Churn_Modelling.csv')
+       dataset = pd.read_csv('C:/Users/HP/OneDrive/Desktop/Fraud_excell/Churn_Modelling.csv')
        X = dataset.iloc[:, 3:-1].values
        y = dataset.iloc[:, -1].values
        # print(X)
@@ -40,11 +43,14 @@ while 1:
 
        ann.fit(X_train, y_train, batch_size=32, epochs=100)
    else:
-       # further more this program would have to be running through whole time in background as it is real time implementation
-       # we will be streaming data and if data is null then we will do continue; otherwise run the prediction of model
-       # if(data==NULL)
-       #  continue
-       # else
-       # make a prediction for an example of an out-of-sample observation
-       print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
-       time.sleep(1)
+       consumer = KafkaConsumer('TestTopic', group_id='my_favorite_group')
+       for msg in consumer:
+           print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+           #code updated to now the the output prediction would be done only when there is a msg in consumer by producer
+           # further more this program would have to be running through whole time in background as it is real time implementation
+           # we will be streaming data and if data is null then we will do continue; otherwise run the prediction of model
+
+
+           #time.sleep(1)
+
+

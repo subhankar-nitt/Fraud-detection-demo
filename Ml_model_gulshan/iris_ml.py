@@ -11,6 +11,7 @@ from sklearn import metrics
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from kafka import KafkaConsumer
 c=0;
 while 1:
     if(c==0):
@@ -50,12 +51,14 @@ while 1:
     else:
         #further more this program would have to be running through whole time in background as it is real time implementation
         #we will be streaming data and if data is null then we will do continue; otherwise run the prediction of model
-        #if(data==NULL)
-        #  continue
-        #else
-          # make a prediction for an example of an out-of-sample observation
-          #for now i put it to sleep
-        print(knn.predict([[6, 3, 4, 2]]))
-        time.sleep(1)
+
+        # further more this program would have to be running through whole time in background as it is real time implementation
+        # we will be streaming data and if data is null then we will do continue; otherwise run the prediction of model
+        # code updated to now the the output prediction would be done only when there is a msg in consumer by producer
+        consumer = KafkaConsumer('TestTopic', group_id='my_favorite_group')
+        for msg in consumer:
+            print(msg)
+            print(knn.predict([[6, 3, 4, 2]]))
+            #time.sleep(1)
 
 
