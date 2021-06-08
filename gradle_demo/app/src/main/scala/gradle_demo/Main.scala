@@ -1,8 +1,9 @@
-package consumer_code
+package gradle_demo
+
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, from_json}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructType,StructField}
-object CreateDataFrame {
+object Main {
   def main(args: Array[String]): Unit={
     
     
