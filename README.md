@@ -1,4 +1,5 @@
 # Fraud-detection-demo
 
-#Guys for the demo part use it . We can keep track of others code  using it . create a branch individually and use it put your code there 
-
+Data wrangling and analysis for rule extraction.
+Sample dataset used for discovering rules.
+Rule found: Abnormal number of transactions of above average amounts of money in short time.
