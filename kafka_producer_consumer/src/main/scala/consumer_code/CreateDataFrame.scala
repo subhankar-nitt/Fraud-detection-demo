@@ -18,7 +18,7 @@ object CreateDataFrame {
         .format(source = "kafka")
         .option("kafka.bootstrap.servers", kafka_bootstrap_server)
         .option("subscribe", kafka_topic_name)
-        .load()
+        .load("C:/Users/HP/OneDrive/Desktop/trans.csv")
         
     
     val users_df_1= user_df.selectExpr(exprs="CAST(value As String)","CAST(timestamp AS TIMESTAMP)")

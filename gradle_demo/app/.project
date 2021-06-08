@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>app</name>
-	<comment>Project gradleConsumer-app created by Buildship.</comment>
+	<name>gradle_demo-app</name>
+	<comment>Project gradle_demo-app created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
