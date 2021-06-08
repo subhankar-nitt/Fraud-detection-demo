@@ -22,22 +22,16 @@ repositories {
 dependencies {
     // Use Scala 2.13 in our library project
     implementation group: 'org.scala-lang', name: 'scala-library', version: '2.12.14'
-	compileOnly group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.1'
-	
+
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.0-jre'
-	testImplementation group: 'org.apache.spark', name: 'spark-sql-kafka-0-10_2.12', version: '3.1.1'
-	
-		implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.8.0'
-		implementation group: 'org.apache.kafka', name: 'kafka_2.12', version: '2.8.0'
-    	implementation group: 'org.apache.spark', name: 'spark-streaming-kafka-0-10_2.12', version: '3.1.2'
-    	implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
-    	compileOnly group: 'org.apache.spark', name: 'spark-streaming_2.12', version: '3.1.1'
-    	
-    	implementation 'com.google.guava:guava:30.0-jre'
+	compileOnly group: 'org.apache.spark', name: 'spark-mllib_2.12', version: '3.1.1'
+	compileOnly group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.1'
+	implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
+		
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.example.streaming.App'
+    mainClass = 'com.example.main.App'
 }

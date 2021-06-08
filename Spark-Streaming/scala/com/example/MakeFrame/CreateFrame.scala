@@ -23,7 +23,17 @@ class CreateFrame {
     split(col("value"),",").getItem(3).as("Sepal_len"),
     split(col("value"),",").getItem(4).as("Sepal_width"),
     split(col("value"),",").getItem(5).as("Species")).drop("value")
-    df1.show()
-
+    
+    
+    val df2 = df1.withColumn("Serial No",col("Serial No").cast("int"))
+     val df3 = df2.withColumn("petal_len",col("petal_len").cast("float"))
+    
+    //send the dataFrame as a Json Stream 
+   df1.select(to_json(struct($"Serial No", $"petal_len", $"petal_width",$"sepal_len",$"sepal_width",$"Species")).alias("value"))
+  .write
+  .format("kafka")
+  .option("kafka.bootstrap.servers", "localhost:9093")
+  .option("topic", "myJava")
+  .save()
   }
 }
