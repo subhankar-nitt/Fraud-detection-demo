@@ -1,0 +1,33 @@
+# Fraud-detection-demo
+[value: string, timestamp: timestamp]
++--------------------+--------------------+
+|         user_detail|           timestamp|
++--------------------+--------------------+
+|{1, Gulshan, Kuma...|2021-06-07 15:09:...|
+|{2, Anu, Kumar, n...|2021-06-07 15:09:...|
+|{3, Cooper, Kumar...|2021-06-07 15:09:...|
+|{4, harry, Kumar,...|2021-06-07 15:09:...|
++--------------------+--------------------+
+
+()root
+ |-- credit_num: integer (nullable = true)
+ |-- First_Name: string (nullable = true)
+ |-- Last_Name: string (nullable = true)
+ |-- Trans_num: string (nullable = true)
+ |-- Amount: integer (nullable = true)
+ |-- Category: string (nullable = true)
+ |-- Merchant: string (nullable = true)
+ |-- timestamp: timestamp (nullable = true)
+
++----------+----------+---------+---------+------+--------+--------+-----------------------+
+|credit_num|First_Name|Last_Name|Trans_num|Amount|Category|Merchant|timestamp              |
++----------+----------+---------+---------+------+--------+--------+-----------------------+
+|1         |Gulshan   |Kumar    |null     |1200  |Food    |Dominos |2021-06-07 15:09:47.381|
+|2         |Anu       |Kumar    |null     |1200  |Food    |Dominos |2021-06-07 15:09:48.385|
+|3         |Cooper    |Kumar    |null     |1200  |Food    |Dominos |2021-06-07 15:09:49.392|
+|4         |harry     |Kumar    |null     |1200  |Food    |Dominos |2021-06-07 15:09:50.394|
++----------+----------+---------+---------+------+--------+--------+-----------------------+
+
+Application completed
+
+A dataframe is created using kafka
