@@ -21,7 +21,7 @@ object Logistic_Regression  {
 
     val spark = SparkSession.builder().appName("ml app").config(conf).getOrCreate()
 
-    val df = spark.read.option("header", true).csv("D:/Iris.csv")
+    val df = spark.read.option("header", true).csv("E:/Iris.csv")
     
    val df1= df.withColumn("Id", col("Id").cast("int"))
    val df2 = df1.withColumn("SepalLengthCm", col("SepalLengthCm").cast("float"))
