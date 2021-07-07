@@ -1,6 +1,6 @@
 import pandas as pd
 def load_data():
-    data = [['2019-01-01 00:00:18' ,2,20,'entertainment'],
+    data = [['2019-01-01 00:00:18' ,1,20,'entertainment'],
              ['2019-01-01 00:00:28' ,1,10,'entertainment'],
              ['2019-05-02 02:00:30' ,1,5.5,'entertainment'],
              ['2019-05-02 02:01:28' ,1,80.6,'travel'],
